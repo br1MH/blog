@@ -3,7 +3,7 @@
 
 /// Prefix of post document numbers: TN-001, TN-002, ... Use your initials
 /// for a personal series, e.g. "ABC-TN".
-#let doc-prefix = "TN"
+#let doc-prefix = "DOC"
 
 /// Width of the text column in CSS pixels, shared by the header, listings
 /// and post text. Wider posts float their table of contents beside the text
@@ -12,11 +12,12 @@
 
 /// Optional orange code shown in the header next to the site title, e.g.
 /// "RESEARCH NOTES"; `none` hides it.
-#let mission = none
+#let mission = "Registros"
 
 /// Links in the footer, as (label, URL) pairs, e.g. ("Email",
 /// "mailto:you@example.com"). They carry `rel="me"`, so Mastodon and other
 /// IndieWeb profiles that link back to the site can verify them.
+/// TODO: Incluir redes sociales aquí
 #let social-links = (
   ("GitHub", "https://github.com/KKKZOZ/tola-theme-nasapunk"),
 )
@@ -37,8 +38,8 @@
 /// Syntax colours for code: a name from @tola/code's `code-themes`
 /// (`tola help "@tola/code" code-themes`), or `auto` for Typst's own
 /// colours. `code-theme` is the day look, `code-dark-theme` the night one.
-#let code-theme = auto
-#let code-dark-theme = "github-dark"
+#let code-theme = "gruvbox-light"
+#let code-dark-theme = "gruvbox-dark"
 
 /// Extra <head> content on every page, such as an analytics script.
 /// `html.elem` takes any attribute; Plausible, for example:

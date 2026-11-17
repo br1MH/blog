@@ -17,9 +17,10 @@
 /// change at night, are not mapped.
 #let colors = (
   // Page
-  paper: (rgb("#ffffff"), rgb("#15191b")),
+  // TODO: Terminar de configurar la paleta de colores
+  paper: (rgb("#F5F2EB"), rgb("#141414")),
   ink: (rgb("#222a2d"), rgb("#dde2dc")),
-  orange: (rgb("#cb4b22"), rgb("#ec6e42")),
+  orange: (rgb("#C83737"), rgb("#C83737")),
   muted: (rgb("#65716f"), rgb("#919c99")),
   rule: (rgb("#c5c9be"), rgb("#3b4447")),
   panel: (rgb("#e6e7dd"), rgb("#20282b")),
@@ -54,11 +55,10 @@
   tint-danger: (rgb("#faeeee"), rgb("#2c1a1a")),
 
   // The livery: five stacked bands (`.rail`, the social preview image).
-  band-1: rgb("#b84636"),
-  band-2: rgb("#de783c"),
-  band-3: rgb("#e3b65a"),
-  band-4: rgb("#719c98"),
-  band-5: rgb("#355b70"),
+  band-1: rgb("#C83737"),
+  band-2: rgb("#F5F2EB"),
+  band-3: rgb("#C83737"),
+
 
   // Drawings only (`c` in utils/figure.typ, utils/diagram.typ): connector
   // lines, greys and the pale tints of the strong tones.

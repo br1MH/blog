@@ -10,7 +10,7 @@
 #import "/templates/layout.typ": author, orbital-glyph, social-output
 
 /// The livery bands (templates/colors.typ), top to bottom.
-#let bands = range(1, 6).map(i => palette.at("band-" + str(i)))
+#let bands = range(1, 3).map(i => palette.at("band-" + str(i)))
 
 /// Five stacked bands, each `stripe` tall, as the `.rail` class.
 #let rail(width, stripe) = stack(..bands.map(c => rect(width: width, height: stripe, fill: c, stroke: none)))
@@ -92,7 +92,7 @@
       column-gutter: 2pt,
       align: horizon,
       line(length: 100%, stroke: .4pt + palette.rule),
-      ..(palette.blue, bands.at(3), bands.at(2)).map(c => rect(width: 100%, height: 1pt, fill: c, stroke: none)),
+      ..(bands.at(0), bands.at(1), bands.at(0)).map(c => rect(width: 100%, height: 1pt, fill: c, stroke: none)),
     )
     #v(9pt)
     #grid(

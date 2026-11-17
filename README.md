@@ -1,7 +1,3 @@
-<div align="center">
-
-<img src="assets/favicon.svg" width="84" alt="">
-
 # NASApunk
 
 **A NASApunk-style blog theme for [Tola](https://github.com/tola-rs/tola-ssg).**
@@ -28,14 +24,16 @@ Write posts in Typst. Figures, diagrams and math render as inline SVG in the the
 
 ## Contents
 
-- [Features](#features)
-- [Screenshots](#screenshots)
-- [Quick start](#quick-start)
-- [Documentation](#documentation)
-- [Fonts](#fonts)
-- [Acknowledgements](#acknowledgements)
-- [License](#license)
-- [Star History](#star-history)
+- [NASApunk](#nasapunk)
+  - [Contents](#contents)
+  - [Features](#features)
+  - [Screenshots](#screenshots)
+  - [Quick start](#quick-start)
+  - [Documentation](#documentation)
+  - [Fonts](#fonts)
+  - [Acknowledgements](#acknowledgements)
+  - [License](#license)
+  - [Star History](#star-history)
 
 ## Features
 

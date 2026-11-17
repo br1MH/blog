@@ -5,7 +5,7 @@ import { join } from "node:path";
 
 // Pagefind detects the language from each page's `lang`; set an ISO 639-1
 // code such as "zh" to index the whole site as one language instead.
-const forceLanguage = undefined;
+const forceLanguage = "es";
 
 const fail = (message) => {
   console.error(message);

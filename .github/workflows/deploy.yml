@@ -22,8 +22,6 @@ concurrency:
 
 jobs:
   deploy:
-    # Only the theme's own repository deploys until a copy opts in.
-    if: github.repository == 'KKKZOZ/tola-theme-nasapunk'
     runs-on: ubuntu-latest
     environment:
       name: github-pages

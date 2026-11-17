@@ -19,12 +19,12 @@
 
 /// Header navigation: (label, output file).
 #let nav-items = (
-  ("Home", "index.html"),
-  ("Archive", "archive/index.html"),
-  ("Tags", "tags/index.html"),
+  ("Inicio", "index.html"),
+  ("Archivo", "archive/index.html"),
+  ("Etiquetas", "tags/index.html"),
   ("Series", "series/index.html"),
-  ("Search", "search/index.html"),
-  ("About", "about/index.html"),
+  ("Búsqueda", "search/index.html"),
+  ("Sobre Mi", "about/index.html"),
 )
 
 /// The site author's name, from `[site] authors`.

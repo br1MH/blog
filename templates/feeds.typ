@@ -8,7 +8,7 @@
 #import "@tola/web:0.0.0": feed, sitemap
 
 /// Newest posts listed in the feed.
-#let feed-size = 20
+#let feed-size = 30
 
 /// `true` puts each post's full text in the feed, `false` only its summary.
 #let full-text = true

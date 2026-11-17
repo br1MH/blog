@@ -6,12 +6,15 @@
 
 # tola help "[site]"
 [site]
-# origin = ""  # Public address, e.g. "https://example.com"; needed for feeds and sitemaps
+# TODO: Crear una página estática pública usando GitHub Pages 
+origin = "https://br1MH.github.io"  # Public address, e.g. "https://example.com"; needed for feeds and sitemaps
 base-path = "/"
-title = "NASApunk"
-authors = [{ name = "Your Name" }]
-description = "A Typst blog theme in the NASApunk style."
-language = "en"
+# TODO: Escoger título
+title = "Apuntes Personales"
+authors = [{ name = "Bruno Montero Hernangómez" }]
+# TODO: Escribir descripción
+description = ""
+language = "es"
 
 # tola help "[build]"
 [build]

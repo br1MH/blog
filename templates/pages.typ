@@ -10,7 +10,7 @@
 #import "/templates/post.typ": doc-number, pad, part-title
 
 /// Posts per home page; the rest go on /page/2/, /page/3/, ...
-#let shown = 10
+#let shown = 15
 
 /// The home page's n-th page (from 1): index.html, then page/n/index.html.
 #let home-output(n) = if n == 1 { "index.html" } else { "page/" + str(n) + "/index.html" }
