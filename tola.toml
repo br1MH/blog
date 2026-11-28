@@ -1,0 +1,44 @@
+# Tola configuration
+# https://github.com/tola-rs/tola-ssg
+
+# tola help "[site]"
+[site]
+# origin = "https://br1MH.github.io"  # Public address, e.g. "https://example.com"; needed for feeds and sitemaps
+base-path = "/"
+title = "Personal notes"
+authors = [{ name = "Bruno Montero Hernangómez" }]
+description = ""
+language = "es"
+
+# tola help "[build]"
+# The theme builds every page. To give it Typst values (extra <head>
+# markup, comments under posts), write a site.typ that calls the theme's
+# `render-site` and set `entry = "site.typ"`; see
+# https://github.com/KKKZOZ/tola-theme-nasapunk/blob/main/site.typ
+[build]
+entry = { module = "nasapunk" }
+
+# tola help "[modules]"
+# `tola update nasapunk` fetches a newer theme and records it in tola.lock.
+[modules.nasapunk]
+git = { url = "https://github.com/KKKZOZ/tola-theme-nasapunk", subdir = "theme" }
+
+# The theme's options. All of them, with defaults and notes:
+# https://github.com/KKKZOZ/tola-theme-nasapunk/blob/main/theme/tola-module.toml
+[modules.nasapunk.options]
+doc-prefix = "DOC"
+
+# tola help "[typst.fonts]"
+# Figures and preview images are drawn in the fonts the theme ships. System
+# fonts stay on for CJK text (the `cjk-font` option).
+[typst.fonts]
+paths = []
+modules = ["nasapunk"]
+system = true
+
+# tola help "[assets]"
+# Your own files, such as post images: put them in assets/, uncomment
+# `trees` and link them as "/assets/...".
+[assets]
+cache-busting = true
+# trees = [{ source = "assets", url-prefix = "/assets" }]
