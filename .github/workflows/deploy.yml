@@ -1,0 +1,51 @@
+# Publishes the example site to GitHub Pages, the theme's live demo.
+#
+# In a copy of this template: set Settings → Pages → Source to "GitHub
+# Actions", then add a repository variable DEPLOY_PAGES = true (Settings →
+# Secrets and variables → Actions → Variables). The workflow passes the Pages
+# address to Tola, so it works for <user>.github.io and for project sites
+# under /<repo>/ alike.
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    # The theme's own repository, and copies that opt in with DEPLOY_PAGES.
+    if: github.repository == 'KKKZOZ/tola-theme-nasapunk' || vars.DEPLOY_PAGES == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install the latest Tola release
+        uses: ./.github/actions/install-tola
+
+      # Origin and path of this Pages site: base_path is "" for
+      # <user>.github.io and "/<repo>" for a project site.
+      - id: pages
+        uses: actions/configure-pages@v6
+
+      - name: Build
+        run: tola build --origin "${{ steps.pages.outputs.origin }}" --base-path "${{ steps.pages.outputs.base_path }}/"
+
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: public
+
+      - id: deployment
+        uses: actions/deploy-pages@v5

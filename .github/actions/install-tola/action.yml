@@ -1,0 +1,37 @@
+# Installs a Tola release binary (x86_64 Linux, musl) after checking it
+# against the release's checksums.txt, when the release has one (some
+# pre-releases do not).
+name: Install Tola
+description: Download a Tola release binary and put it on PATH
+
+inputs:
+  version:
+    description: 'Release version without the "v", such as 0.8.2, or "latest"'
+    default: latest
+
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      env:
+        GH_TOKEN: ${{ github.token }}
+        VERSION: ${{ inputs.version }}
+      run: |
+        if [ "$VERSION" = latest ]; then
+          tag=$(gh release view --repo tola-rs/tola-ssg --json tagName --jq .tagName)
+        else
+          tag="v$VERSION"
+        fi
+        archive="tola-${tag#v}-x86_64-unknown-linux-musl.tar.gz"
+        gh release download "$tag" --repo tola-rs/tola-ssg --pattern "$archive" --dir "$RUNNER_TEMP"
+        cd "$RUNNER_TEMP"
+        if gh release download "$tag" --repo tola-rs/tola-ssg --pattern checksums.txt --dir "$RUNNER_TEMP" 2>/dev/null; then
+          grep " $archive\$" checksums.txt | sha256sum --check -
+        else
+          echo "::warning::Tola $tag publishes no checksums.txt; installing $archive unchecked"
+        fi
+        mkdir -p "$HOME/.local/bin"
+        tar xzf "$archive" -C "$HOME/.local/bin" tola
+        echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+    - shell: bash
+      run: tola --version
